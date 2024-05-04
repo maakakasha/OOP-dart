@@ -30,21 +30,28 @@ class Rectangle {
   
 }
 
-void  main (){
-// Book kumlsStep1 = Book();
+class RegexPractice {
+  final RegExp emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$');
+  final RegExp passwordRegex = RegExp(r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$');
 
-// kumlsStep1.name = "KUMLS Step1";
-// kumlsStep1.price = 0;
-// kumlsStep1.author = "Mahmoud Mohamed Akasha";
+  bool isEmailValid(String email) {
+    return emailRegex.hasMatch(email);
+  }
 
-// kumlsStep1.displayInfo();
+  bool isPasswordValid(String password) {
+    return passwordRegex.hasMatch(password);
+  }
+}
 
-Rectangle me = Rectangle();
+void main() {
 
-me.height = 10.4;
-me.width = 22.3;
+  String email = "Maakakasha1@gmail.com";
+  String password = "Maakasd1234";
 
-print(me.area());
+  RegexPractice userValidator = RegexPractice();
 
-} 
+  userValidator.isEmailValid("Maakakasha1@gmail.com") == false
+      ? print("Invalid email")
+      : userValidator.isPasswordValid(password) ? print("Signing in process") : print("Weak password");
+}
 
