@@ -5,6 +5,7 @@
 // Create a class Book with three properties: name, author, and price. Also, create a method called display, which prints out the values of the three properties.
 
 import 'dart:ffi';
+import 'dart:io';
 
 class Book {
 
@@ -43,15 +44,27 @@ class RegexPractice {
   }
 }
 
-void main() {
 
-  String email = "Maakakasha1@gmail.com";
-  String password = "Maakasd1234";
+class Indicator {
+  final int minima;
+  final int maxima;
 
-  RegexPractice userValidator = RegexPractice();
+  const Indicator({required this.minima, required this.maxima});
 
-  userValidator.isEmailValid("Maakakasha1@gmail.com") == false
-      ? print("Invalid email")
-      : userValidator.isPasswordValid(password) ? print("Signing in process") : print("Weak password");
+  List<Map<String, dynamic>>? createNodeIndicator() {
+    List<Map<String, dynamic>>? listOfNodes = []; // Initialize the list here
+    for (var i = minima; i != maxima; i++) { // Correct the loop condition
+      // Should define a temp var for golbalKey:
+      var key = "GlobalKeyInstance()";
+      Map<String, dynamic> node = {"value": i, "key": key}; // adding the global keys:
+      listOfNodes.add(node);
+    }
+
+    return listOfNodes;
+  }
 }
 
+void main() {
+  Indicator indicatorInstance = new Indicator(minima: 40, maxima: 90);
+  print('print: the indicator nodes: ${indicatorInstance.createNodeIndicator()}');
+}
