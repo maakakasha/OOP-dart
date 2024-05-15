@@ -1,11 +1,10 @@
+
+
 // This is a practice for OOP concepts
 
 // declaring a class 
 
 // Create a class Book with three properties: name, author, and price. Also, create a method called display, which prints out the values of the three properties.
-
-import 'dart:ffi';
-import 'dart:io';
 
 class Book {
 

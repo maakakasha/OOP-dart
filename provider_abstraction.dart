@@ -1,5 +1,7 @@
 class DataOfInterest { // with change notifier 
-  int? _count;
+  int _count = 0;
+
+  int get count => _count;
 
   void increment () {
     _count++;
